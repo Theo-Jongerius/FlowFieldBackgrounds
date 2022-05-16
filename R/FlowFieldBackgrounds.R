@@ -118,7 +118,7 @@ palette_sampler <- function(palette) {
 next_x <- function(x1, numPoints, noise, y1, maxLength, curliness) { # calculate next x value for each point
   x2 <- 1:numPoints
   for (i in 1:numPoints) {
-    x2[i] <- x1[i] + (sample(1:maxLength, 1, replace = TRUE) * cos(noise[y1[i + 1], x1[i + 1]]*curliness))
+    x2[i] <- x1[i] + (sample(1:maxLength, 1) * cos(noise[y1[i], x1[i]]*curliness))
   }
   return(x2)
 }
@@ -137,7 +137,7 @@ next_x <- function(x1, numPoints, noise, y1, maxLength, curliness) { # calculate
 next_y <- function(y1, numPoints, noise, x1, maxLength, curliness) { # calculate next x value for each point
   y2 <- 1:numPoints
   for (i in 1:numPoints) {
-    y2[i] <- y1[i] + (sample(1:maxLength, 1, replace = TRUE) * sin(noise[y1[i + 1], x1[i + 1]]*curliness))
+    y2[i] <- y1[i] + (sample(1:maxLength, 1) * sin(noise[y1[i], x1[i]]*curliness))
   }
   return(y2)
 }
@@ -204,4 +204,13 @@ pixiedust <- c(
   "darkslategray" = "#1c1b1d",
   "dimgray" = "#6b6568",
   "background" = "#d2a590"
+)
+
+tealorange <- c(
+  "willpowerorange" = "#FD5901",
+  "utorange" = "#F78104",
+  "yelloworange" = "#FAAB36",
+  "lightseagreen" = "#249EA0",
+  "teal" = "#008083",
+  "bangledeshgreen" = "#005F60"
 )
